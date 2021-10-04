@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row mt-3">
         <div class="col-md-6">
-            <?php if (validation_error() ):?>
+            <?php if (validation_errors() ):?>
             <div class="alert alert-primary" role="alert">
-                <?= validation_error() ; ?>
+                <?= validation_errors(); ?>
             </div>
         <?php endif; ?>
         <form action="" method="post">

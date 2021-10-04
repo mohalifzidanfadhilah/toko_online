@@ -30,13 +30,13 @@ class Barang extends CI_controller{
         if ($this->form_validation->run() == FALSE)
             {
                 $this->load->view('templates/header',$data);
-                $this->load->view('barang/index');
+                $this->load->view('barang/tambah');
                 $this->load->view('templates/footer');
             }
             else
             {
                 $this->Barang_model->tambahDataBarang();
-                redirect('barang')
+                redirect('barang');
             }
     }
 }
