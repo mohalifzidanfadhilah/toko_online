@@ -9,7 +9,7 @@
 
   <div class="row-mt-3">
     <div class="colmd-6">
-       <a href="" class="btn btn-primary">Tambah Data Barang</a>
+       <a href="<?= base_url(); ?>barang/tambah" class="btn btn-primary">Tambah Data Barang</a>
     </div>
   </div>
 <table class="table">
