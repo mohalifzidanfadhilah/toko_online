@@ -1,58 +1,78 @@
-<div class="container">
-<?php if ($this->session->flashdata('flash')): ?>
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>Data Barang</strong> <?= $this->session->flashdata('flash'); ?>
-  <button type="button" class="btn-close" data-bs-dismis="alert" aria-label="close"></button>
-</div>
-<?php endif; ?>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-<?php if (empty($barang)):?>
-  <div class="alert alert-danger" role="alert">
-    Data Barang Tak Ditemukan...
-  </div>
-  <?php endif; ?>
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p>
+                            <?php if ($this->session->flashdata('flash')): ?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                              <strong>Data Barang</strong> <?= $this->session->flashdata('flash'); ?>
+                              <button type="button" class="btn-close" data-bs-dismis="alert" aria-label="close"></button>
+                            </div>
+                            <?php endif; ?>
 
-  <div class="row-mt-3">
-    <div class="colmd-6">
-       <a href="<?= base_url(); ?>barang/tambah" class="btn btn-primary">Tambah Data Barang</a>
-    </div>
-  </div>
+                            <?php if (empty($barang)):?>
+                              <div class="alert alert-danger" role="alert">
+                                Data Barang Tak Ditemukan...
+                              </div>
+                              <?php endif; ?>
 
-  <div class="row mt-3">
-    <div class="col-md-6">
-    <form action="" method="post">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Cari Data Barang..." name="keyword">
-      <button class="btn btn-primary" type="submit">Cari</button>
-  </div>
-    </form>
+                              <div class="row-mt-2">
+                                <div class="colmd-4">
+                                  <a href="<?= base_url(); ?>barang/tambah" class="btn btn-primary">Tambah Data Barang</a>
+                                </div>
   
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Kode Barang</th>
-      <th scope="col">Nama Barang</th>
-      <th scope="col">Harga</th>
-      <th scope="col">stok</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <?php foreach ($barang as $brg): ?>
-      <td><?= $brg['id_barang'];?></td>
-      <td><?= $brg['nama_barang'];?></td>
-      <td><?= $brg['harga'];?></td>
-      <td><?= $brg['stok'];?></td>
 
-      <td><a href="<?= base_url(); ?>barang/detail/<?=$brg['id_barang'];?>" class="btn btn-primary">Detail</a>
-      <a href="<?= base_url(); ?>barang/ubah/<?=$brg['id_barang'];?>" class="btn btn-success">Ubah</a>
-      <a href="<?= base_url(); ?>barang/hapus/<?=$brg['id_barang'];?>" class="btn btn-danger" onclick=
-      "return confirm('yakin akan dihapus?');">Hapus</a></td>
-      </tr>
-      <?php endforeach ?>
+                              <div class="row mt-3">
+                                <div class="col-md-6">
+                                <form action="" method="post">
+                                <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Cari Data Barang..." name="keyword">
+                                  <button class="btn btn-primary" type="submit">Cari</button>
+                              </div>
+                                </form>
 
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                          <th scope="col">Kode Barang</th>
+                                          <th scope="col">Nama Barang</th>
+                                          <th scope="col">Harga</th>
+                                          <th scope="col">stok</th>
+                                          <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                          <?php foreach ($barang as $brg): ?>
+                                          <td><?= $brg['id_barang'];?></td>
+                                          <td><?= $brg['nama_barang'];?></td>
+                                          <td><?= $brg['harga'];?></td>
+                                          <td><?= $brg['stok'];?></td>
 
-  </tbody>
-</table>
-</div>
+                                          <td><a href="<?= base_url(); ?>barang/detail/<?=$brg['id_barang'];?>" class="btn btn-primary">Detail</a>
+                                          <a href="<?= base_url(); ?>barang/ubah/<?=$brg['id_barang'];?>" class="btn btn-success">Ubah</a>
+                                          <a href="<?= base_url(); ?>barang/hapus/<?=$brg['id_barang'];?>" class="btn btn-danger" onclick="return confirm('yakin akan dihapus?');">Hapus</a></td>
+                                          </tr>
+                                        <?php endforeach ?>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
