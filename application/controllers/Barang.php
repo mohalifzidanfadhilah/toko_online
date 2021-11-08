@@ -13,6 +13,46 @@ class Barang extends CI_controller{
     function index()
     {
         $data['judul']="Barang";
+
+    // Pagination
+        $this->load->library('pagination');
+
+        //config
+        $config['base_url'] = 'http://localhost/toko_online/Barang/index';
+        $config['total_rows'] = $this->Barang_model->countAllBarang();
+        $config['per_page'] = 5;
+
+            // styling
+            $config['full_tag_open'] = '<nav><ul class="pagination">';
+            $config['full_tag_close'] = '</ul><nav>';
+
+            $config['first_link'] = 'first';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+
+            $config['last_link'] = 'first';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = 'first';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+
+            $config['prev_link'] = 'first';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = '<li class="page-item">';
+
+        //initalize
+        $this->pagination->initialize($config);
+        
         $data['barang']=$this->Barang_model->getAllBarang();
         if( $this->input->post('keyword')){
             $data['barang']=$this->Barang_model->cariDataBarang();

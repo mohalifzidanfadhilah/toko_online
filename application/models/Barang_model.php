@@ -6,6 +6,12 @@ class Barang_model extends CI_model{
         return $this->db->get('barang')->result_array();
     }
 
+    public function getBarang($limit,$start){
+        return $this->db->get('barang',$limit,$start)->result_array();
+    }
+    public function countAllBarang(){
+        return $this->db->get('barang')->num_rows();
+    }
     public function tambahDataBarang(){
         $data = array(
         'id_barang' => $this->input->post('id_barang',true),
